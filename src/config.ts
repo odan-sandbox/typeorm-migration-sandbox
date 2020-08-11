@@ -1,4 +1,6 @@
+import path from "path";
 import { ConnectionOptions } from "typeorm";
+import { CategoryEntity } from "./entity/category";
 
 const config: ConnectionOptions = {
   type: "mysql",
@@ -7,11 +9,11 @@ const config: ConnectionOptions = {
   username: "typeorm-migration-sandbox",
   password: "typeorm-migration-sandbox",
   database: "typeorm-migration-sandbox",
-  entities: [__dirname + "/entity/*.ts"],
+  entities: [CategoryEntity],
   synchronize: false,
-  cli: {
-    migrationsDir: "migrations",
-  },
+  logging: true,
+  migrationsRun: true,
+  migrations: [path.join(__dirname, "..", "migrations", "*.ts")],
 };
 
 export = config;
