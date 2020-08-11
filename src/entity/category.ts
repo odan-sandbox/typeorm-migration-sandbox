@@ -3,7 +3,7 @@ import { EntitySchema } from "typeorm";
 export interface Category {
   id: number;
   name: string;
-  status: string;
+  status: number;
 }
 
 export const CategoryEntity = new EntitySchema<Category>({
@@ -18,7 +18,7 @@ export const CategoryEntity = new EntitySchema<Category>({
       type: String,
     },
     status: {
-      type: String,
+      type: Number,
     },
   },
 });
