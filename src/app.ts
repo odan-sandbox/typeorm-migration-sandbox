@@ -1,5 +1,9 @@
+import { createConnection } from "typeorm";
+import config from "./config";
+
 async function main(): Promise<void> {
-  console.log("poyo");
+  const connection = await createConnection(config);
+  console.log(connection);
 }
 
 main();
